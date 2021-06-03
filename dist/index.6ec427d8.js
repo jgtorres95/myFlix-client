@@ -892,7 +892,7 @@ class MyFlixApplication extends _reactDefault.default.Component {
     }
 }
 //Find root of app
-const container = document.getElementByClassName('app-container')[0];
+const container = document.getElementsByClassName('app-container')[0];
 //Render app in the root DOM element
 _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
 
