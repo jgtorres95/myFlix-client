@@ -873,7 +873,7 @@ var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component
-class myFlixApplication extends _reactDefault.default.Component {
+class MyFlixApplication extends _reactDefault.default.Component {
     render() {
         return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "my-flix",
@@ -894,7 +894,7 @@ class myFlixApplication extends _reactDefault.default.Component {
 //Find root of app
 const container = document.getElementByClassName('app-container')[0];
 //Render app in the root DOM element
-_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(myFlixApplication), container);
+_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(MyFlixApplication), container);
 
   helpers.postlude(module);
 } finally {
