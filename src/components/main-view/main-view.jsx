@@ -11,8 +11,8 @@ class MainView extends React.Component {
         { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...' },
         { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: '...' },
         { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...' },
-        selectedMovie: null
-      ]
+      ],
+      selectedMovie: null
     }
   }
 
@@ -25,7 +25,7 @@ class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movie={movie} onClick={() => { this.state.selectedMovie = movie; }} />)}
+        {movies.map(movie => <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.state.selectedMovie = newSelectedMovie; }} />)}
       </div>
     );
   }
