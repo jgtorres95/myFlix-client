@@ -11,7 +11,7 @@ export function RegistrationView(props) {
   const handleSubmit = () => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    props.onRegistration(username);
+    // props.onRegistration(username);
   };
 
   return (
@@ -36,3 +36,7 @@ export function RegistrationView(props) {
     </form>
   );
 }
+
+RegistrationView.propTypes = {
+  onRegistration: PropTypes.func.isRequired
+};
