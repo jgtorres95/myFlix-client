@@ -5,6 +5,7 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class MainView extends React.Component {
 
@@ -55,11 +56,11 @@ class MainView extends React.Component {
 
     // If user is null, render LoginView. If user is logged in, pass user details as prop to LoginView
     if (!user) return (
-      //<Row className="login-view justify-content-md-center">
-      //<Col md={8}>
-      <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-      //</Col>
-      //</Row>
+      <Row className="login-view justify-content-md-center">
+        <Col md={8}>
+          <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+        </Col>
+      </Row>
     )
 
     // Before movies have been loaded
