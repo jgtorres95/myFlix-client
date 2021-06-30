@@ -21911,12 +21911,14 @@ class MainView extends _reactDefault.default.Component {
     render() {
         const { movies , selectedMovie , user  } = this.state;
         // If user is null, render LoginView. If user is logged in, pass user details as prop to LoginView
-        if (!user) return(/*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
+        if (!user) return(//<Row className="login-view justify-content-md-center">
+        //<Col md={8}>
+        /*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
             onLoggedIn: (user1)=>this.onLoggedIn(user1)
             ,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 57
+                lineNumber: 60
             },
             __self: this
         }));
@@ -21925,7 +21927,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 60
+                lineNumber: 66
             },
             __self: this
         }));
@@ -21933,14 +21935,14 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 63
+                lineNumber: 69
             },
             __self: this
         }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(Col, {
             md: 8,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 67
+                lineNumber: 73
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
@@ -21950,14 +21952,14 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 68
+                lineNumber: 74
             },
             __self: this
         })) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(Col, {
                 md: 3,
                 __source: {
                     fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 72
+                    lineNumber: 78
                 },
                 __self: this
             }, /*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
@@ -21968,7 +21970,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 73
+                    lineNumber: 79
                 },
                 __self: this
             }))
