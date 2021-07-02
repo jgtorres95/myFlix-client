@@ -14,6 +14,12 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const onRegister = () => {
+    let newRegStatus = true;
+    console.log(newRegStatus);
+    props.setRegStatus(newRegStatus);
+  };
+
   return (
     <Form>
       <Form.Group controlId="formUsername">
