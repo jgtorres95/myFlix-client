@@ -11,10 +11,11 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleSubmit = () => {
+  const handleRegistration = () => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    // props.onRegistration(username);
+    let newRegStatus = false;
+    props.setRegStatus(newRegStatus);
   };
 
   return (
