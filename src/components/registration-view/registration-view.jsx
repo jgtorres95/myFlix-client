@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './registration-view.scss';
+import axios from 'axios';
 
 export function RegistrationView(props) {
 
@@ -13,9 +14,20 @@ export function RegistrationView(props) {
 
   const handleRegistration = () => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    let newRegStatus = false;
-    props.setRegStatus(newRegStatus);
+    axios.post('https://cf-myflix-app.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
+      .then(response => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self')
+      })
+      .catch(e => {
+        console.log('error registering user')
+      });
   };
 
   return (
@@ -47,6 +59,6 @@ export function RegistrationView(props) {
   );
 }
 
-RegistrationView.propTypes = {
-  setRegStatus: PropTypes.func.isRequired
-};
+//RegistrationView.propTypes = {
+  //setRegStatus: PropTypes.func.isRequired
+//};
