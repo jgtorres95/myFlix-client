@@ -5,6 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import './movie-view.scss'
 
+import { Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 export class MovieView extends React.Component {
 
   render() {
@@ -22,9 +25,17 @@ export class MovieView extends React.Component {
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
+        <Link to={`/directors/${movie.Director.Name}`}>
+          <Button variant="link">Director</Button>
+        </Link>
+
+        <Link to={`/genres/${movie.Genre.Name}`}>
+          <Button variant="link">Genre</Button>
+        </Link>
+
         <Button variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
 
-      </div>
+      </div >
     );
   }
 }
