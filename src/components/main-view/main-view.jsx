@@ -81,11 +81,11 @@ class MainView extends React.Component {
       });
   }
 
-  setRegStatus(newRegStatus) {
+  /*setRegStatus(newRegStatus) {
     this.setState({
       regStatus: newRegStatus
     });
-  }
+  } */
 
   render() {
     const { movies, selectedMovie, user, regStatus } = this.state;
