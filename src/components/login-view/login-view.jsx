@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { Link } from 'react-router-dom';
 
-import './login-view.scss'
+import './login-view.scss';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -43,7 +43,7 @@ export function LoginView(props) {
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password: </Form.Label>
-        <Form.Control type="text" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
+        <Form.Control type="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <Button className="login-button" variant="primary" type="submit" onClick={handleSubmit}>
         Log In
