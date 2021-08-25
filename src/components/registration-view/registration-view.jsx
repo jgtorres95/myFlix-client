@@ -12,25 +12,31 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleRegistration = () => {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
+
+  const handleRegistration = (e) => {
     e.preventDefault();
-    axios.post('https://cf-myflix-app.herokuapp.com/users', {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    })
-      .then(response => {
-        const data = response.data;
-        console.log(data);
-        window.open('/', '_self')
+    const isValidated = formValidation();
+    if (isValidated) {
+      axios.post('https://cf-myflix-app.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
       })
-      .catch(e => {
-        console.log('error registering user')
-      });
+        .then(response => {
+          const data = response.data;
+          console.log(data);
+          window.open('/', '_self')
+        })
+        .catch(e => {
+          console.log('error registering user')
+        });
+    };
+  }
+
   };
 
   return (
