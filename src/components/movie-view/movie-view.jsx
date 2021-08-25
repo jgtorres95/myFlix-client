@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button'
-import './movie-view.scss'
+import Button from 'react-bootstrap/Button';
+import './movie-view.scss';
 
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
