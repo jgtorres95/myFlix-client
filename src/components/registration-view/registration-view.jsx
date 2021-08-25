@@ -69,7 +69,6 @@ export function RegistrationView(props) {
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} required />
         {Object.keys(usernameError).map((key) => {
           return (
