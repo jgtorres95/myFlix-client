@@ -54,7 +54,6 @@ class MainView extends React.Component {
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
-      user: authData.user.Username
       //user: authData.user.Username
       user: authData.user
     });
@@ -101,11 +100,6 @@ class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie, user, regStatus } = this.state;
-
-    //return (
-    //<Navbar>
-    //<Navbar.Brand>MyFlix</Navbar.Brand>
-    //</Navbar>
 
     return (
       <Router>
