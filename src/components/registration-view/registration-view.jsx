@@ -70,16 +70,38 @@ export function RegistrationView(props) {
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" onChange={e => setUsername(e.target.value)} required />
+        {Object.keys(usernameError).map((key) => {
+          return (
+            <div key={key}>
+              {usernameError[key]}
+            </div>
+          );
+        })}
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password: </Form.Label>
-        <Form.Control type="text" onChange={e => setPassword(e.target.value)} />
+        <Form.Control type="password" onChange={e => setPassword(e.target.value)} required />
+        {Object.keys(passwordError).map((key) => {
+          return (
+            <div key={key}>
+              {passwordError[key]}
+            </div>
+          );
+        })}
       </Form.Group>
 
       <Form.Group controlId="formEmail">
         <Form.Label>Email: </Form.Label>
         <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
+        {Object.keys(emailError).map((key) => {
+          return (
+            <div key={key}>
+              {emailError[key]}
+            </div>
+          );
+        })}
       </Form.Group>
 
       <Form.Group controlId="formBirthday">
