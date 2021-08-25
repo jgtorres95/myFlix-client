@@ -37,6 +37,32 @@ export function RegistrationView(props) {
     };
   }
 
+  const formValidation = () => {
+    let usernameError = {};
+    let passwordError = {};
+    let emailError = {};
+    let isValidated = true;
+
+
+    if (username === '') {
+      usernameError.usernameEmpty = 'Username is required'
+      isValidated = false;
+    }
+
+    if (password === '') {
+      passwordError.passwordEmpty = 'Password is required'
+      isValidated = false;
+    }
+
+    if (!(email && email.includes(".") && email.includes("@"))) {
+      emailError.emailNotValid = 'Email address is not valid';
+      isValidated = false;
+    }
+
+    setUsernameError(usernameError);
+    setPasswordError(passwordError);
+    setEmailError(emailError);
+    return isValidated;
   };
 
   return (
