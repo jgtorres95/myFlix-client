@@ -13,6 +13,9 @@ export function RegistrationView(props) {
   const [birthday, setBirthday] = useState('');
 
   const handleRegistration = () => {
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState('');
     e.preventDefault();
     axios.post('https://cf-myflix-app.herokuapp.com/users', {
       Username: username,
