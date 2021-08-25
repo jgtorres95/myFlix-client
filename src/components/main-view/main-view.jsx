@@ -129,6 +129,12 @@ class MainView extends React.Component {
               <RegistrationView />
             </Col>
           }} />
+          <Route path="/profile" render={() => {
+            if (!user) return <Redirect to="/" />
+            return <Col>
+              <ProfileView user={user} movies={movies} />
+            </Col>
+          }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
