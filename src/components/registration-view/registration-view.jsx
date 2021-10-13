@@ -5,6 +5,9 @@ import Button from 'react-bootstrap/Button';
 import './registration-view.scss';
 import axios from 'axios';
 
+import { Link } from "react-router-dom";
+
+// create RegistrationView component
 export function RegistrationView(props) {
 
   const [username, setUsername] = useState('');
@@ -111,6 +114,11 @@ export function RegistrationView(props) {
       <Button className="login-button" variant="primary" type="submit" onClick={handleRegistration}>
         Submit
       </Button>
+      <Link to={`/`}>
+        <Button className="update-button" variant="dark">
+          Cancel
+        </Button>
+      </Link>
     </Form >
   );
 }
