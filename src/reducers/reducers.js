@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+// import actions
 import { SET_FILTER, SET_MOVIES, SET_USER } from '../actions/actions';
 
+// create reducer functions
 function visibilityFilter(state = '', action) {
   switch (action.type) {
     case SET_FILTER:
@@ -20,7 +22,7 @@ function movies(state = [], action) {
   }
 }
 
-function user(state = {}, action) {
+function user(state = null, action) {
   switch(action.type) {
     case SET_USER:
       return action.value;
