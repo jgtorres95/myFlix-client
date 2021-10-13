@@ -5,7 +5,11 @@ import Form from 'react-bootstrap/Form';
 import './update-view.scss';
 import axios from 'axios';
 
+import { Link } from "react-router-dom";
+
+// create UpdateView component 
 export function UpdateView(props) {
+  let user = localStorage.getItem("user");
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -113,12 +117,14 @@ export function UpdateView(props) {
         <Form.Control type="date" placeholder={localStorage.getItem('birthday')} onChange={e => setBirthday(e.target.value)} />
       </Form.Group>
 
-      <Button className="update-button" variant="primary" onClick={handleUpdate}>
+      <Button className="update-button" variant="dark" onClick={handleUpdate}>
         Submit
       </Button>
-      <Button className="update-button" variant="primary">
-        Cancel
-      </Button>
+      <Link to={`/users/${user}`}>
+        <Button className="update-button" variant="dark">
+          Cancel
+        </Button>
+      </Link>
     </Form>
   )
 }
