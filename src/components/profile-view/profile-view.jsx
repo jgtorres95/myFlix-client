@@ -12,32 +12,6 @@ import { Link } from "react-router-dom";
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
-  /* constructor() {
-     super();
-     this.state = {
-       Username: null,
-       Password: null,
-       Email: null,
-       Birthday: null,
-     }
-   }
- 
-   getUser(token) {
-     axios.get('https://cf-myflix-app.herokuapp.com/user/${Username}', {
-       headers: { Authorization: `Bearer ${token}` }
-     })
-       .then(response => {
-         this.setState({
-           Username: response.data.Username,
-           Password: response.data.Password,
-           Email: response.data.Email,
-           Birthday: response.data.Birthday,
-         });
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
-   } */
 
   handleRemove(movie) {
     const token = localStorage.getItem("token");
