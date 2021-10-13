@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import './update-view.scss';
 import axios from 'axios';
@@ -126,15 +122,3 @@ export function UpdateView(props) {
     </Form>
   )
 }
-
-
-
-/*<Card border="dark" bg="light" text="dark">
-<Card.Body>
-  <Card.Title>Username: {localStorage.getItem('user')}</Card.Title>
-  <Card.Text>Email: {localStorage.getItem('email')}</Card.Text>
-  <Card.Text>Birthday: {localStorage.getItem('birthday')}</Card.Text>
-  <Card.Text>Favorite Movies: {localStorage.getItem('favoriteMovies')}</Card.Text>
-  <Button variant="dark" onClick={() => { onBackClick(null); }}>Save</Button>
-</Card.Body>
-</Card> */
