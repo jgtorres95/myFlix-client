@@ -19,6 +19,7 @@ export function RegistrationView(props) {
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
 
+  // handle post request for new user
   const handleRegistration = (e) => {
     e.preventDefault();
     const isValidated = formValidation();
@@ -40,6 +41,7 @@ export function RegistrationView(props) {
     };
   }
 
+  // validate registration form
   const formValidation = () => {
     let usernameError = {};
     let passwordError = {};
