@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './genre-view.scss';
 
+//create GenreView component 
 export class GenreView extends React.Component {
   render() {
     const { genre, onBackClick } = this.props;
