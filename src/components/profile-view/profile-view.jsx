@@ -11,8 +11,10 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import './profile-view.scss';
 
+// create ProfileView component
 export class ProfileView extends React.Component {
 
+  // handle delete request for newly removed favorite
   handleRemove(movie) {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
@@ -31,6 +33,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+  // handle delete request for deregistered user
   handleDeregister() {
     const token = localStorage.getItem("token");
     let url = 'https://cf-myflix-app.herokuapp.com/users/' + localStorage.getItem('user');
