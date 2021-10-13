@@ -5,20 +5,16 @@ import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-// #0
+// import action creators
 import { setMovies } from '../../actions/actions';
 import { setUser } from '../../actions/actions';
 
-// we haven't written this one yet 
+// component import statements
 import MoviesList from '../movies-list/movies-list';
-
-// #1 The rest of components import statements
-
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { UpdateView } from '../update-view/update-view';
@@ -26,32 +22,26 @@ import { NavBarView } from '../navbar-view/navbar-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Navbar } from 'react-bootstrap';
 
 import './main-view.scss';
 
-
+//create MainView component
 class MainView extends React.Component {
 
   constructor() {
     super();
-    // Initial state is null
+    // Initialize state
     this.state = {
       selectedMovie: null,
-      //user: null,
       regStatus: false
     };
   }
 
   componentDidMount() {
+    let user = localStorage.getItem('user');
     let accessToken = localStorage.getItem('token');
-    //let user = localStorage.getItem('user');
     if (accessToken !== null) {
       this.props.setUser(user);
-      console.log(user);
-      //this.setState({
-      //user: localStorage.getItem('user')
-
     }
     this.getMovies(accessToken);
   }
@@ -64,7 +54,7 @@ class MainView extends React.Component {
     });
   }
 
-  // Update user property in state upon successful login
+  // Update user state in store upon successful login
   onLoggedIn(authData) {
     console.log(authData);
     this.props.setUser(authData);
@@ -97,7 +87,7 @@ class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        // Assign the result to the state
+        // Assign the result to the state in the store
         this.props.setMovies(response.data);
       })
       .catch(function (error) {
@@ -105,16 +95,10 @@ class MainView extends React.Component {
       });
   }
 
-  /*setRegStatus(newRegStatus) {
-    this.setState({
-      regStatus: newRegStatus
-    });
-  } */
-
   render() {
-    //const { selectedMovie, regStatus } = this.state;
+    // destructure props
     const { movies, user } = this.props;
-
+    console.log(user);
     return (
       <Router>
         <NavBarView user={user} />
@@ -125,11 +109,7 @@ class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-            return movies.map(m => (
-              <Col md={3} key={m._id}>
-                <MoviesList movies={movies} />
-              </Col>
-            ))
+            return <MoviesList movies={movies} />
           }} />
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
@@ -139,7 +119,7 @@ class MainView extends React.Component {
           }} />
           <Route path="/profile" render={() => {
             if (!user) return <Redirect to="/" />
-            return <Col>
+            return <Col md={8}>
               <ProfileView user={user} movies={movies} />
             </Col>
           }} />
@@ -194,6 +174,7 @@ class MainView extends React.Component {
   }
 }
 
+// extract movies and user state from store as props
 let mapStateToProps = state => {
   return {
     movies: state.movies,
@@ -201,4 +182,5 @@ let mapStateToProps = state => {
   }
 }
 
+// connect MainView to store
 export default connect(mapStateToProps, { setMovies, setUser })(MainView); 
