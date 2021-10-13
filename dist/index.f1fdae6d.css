@@ -26,8 +26,16 @@ img {
 .main-view {
   margin-top: 5%;
 }
+.profile-card {
+  margin: auto;
+}
 
-
+.profile-view-button {
+  margin: 2%;
+}
+.update-button {
+  margin: 1%;
+}
 
 .app-container {
   font-family: "PT Sans", sans-serif;
