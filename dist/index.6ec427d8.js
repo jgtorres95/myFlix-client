@@ -27360,6 +27360,14 @@ class DirectorView extends _reactDefault.default.Component {
         }, "Back"))));
     }
 }
+DirectorView.propTypes = {
+    director: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Bio: _propTypesDefault.default.string.isRequired,
+        Birth: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
+};
 
   helpers.postlude(module);
 } finally {
@@ -40971,6 +40979,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _reactRedux = require("react-redux");
@@ -40995,7 +41005,7 @@ function MoviesList(props) {
         className: "main-view",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 24
+            lineNumber: 25
         },
         __self: this
     }));
@@ -41006,14 +41016,14 @@ function MoviesList(props) {
         },
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 27
+            lineNumber: 28
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_visibilityFilterInputDefault.default, {
         visibilityFilter: visibilityFilter,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 28
+            lineNumber: 29
         },
         __self: this
     })), filteredMovies.map((m)=>/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -41021,14 +41031,14 @@ function MoviesList(props) {
             key: m._id,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-                lineNumber: 31
+                lineNumber: 32
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
             movie: m,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-                lineNumber: 32
+                lineNumber: 33
             },
             __self: this
         }))
@@ -41036,6 +41046,9 @@ function MoviesList(props) {
 }
 _c = MoviesList;
 exports.default = _reactRedux.connect(mapStateToProps)(MoviesList);
+MoviesList.propTypes = {
+    visibilityFilter: _propTypesDefault.default.string.isRequired
+};
 var _c;
 $RefreshReg$(_c, "MoviesList");
 
@@ -41044,7 +41057,7 @@ $RefreshReg$(_c, "MoviesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Col":"2D0r8","react-redux":"7GDa4","../visibility-filter-input/visibility-filter-input":"6n2wf","../movie-card/movie-card":"3Q0TS","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6"}],"6n2wf":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Col":"2D0r8","react-redux":"7GDa4","../visibility-filter-input/visibility-filter-input":"6n2wf","../movie-card/movie-card":"3Q0TS","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6","prop-types":"4dfy5"}],"6n2wf":[function(require,module,exports) {
 var helpers = require("../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
