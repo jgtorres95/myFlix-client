@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './director-view.scss';
 
+// create DirectorView component 
 export class DirectorView extends React.Component {
   render() {
     const { director, onBackClick } = this.props;
