@@ -8,9 +8,10 @@ import moviesApp from './reducers/reducers';
 
 import MainView from './components/main-view/main-view';
 
-// Import statement to indicate that you need to bundle `./index.scss`
+// bundle `./index.scss`
 import './index.scss';
 
+// create store
 const store = createStore(moviesApp, devToolsEnhancer());
 
 // Main component
