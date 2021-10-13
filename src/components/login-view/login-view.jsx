@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 import './login-view.scss';
 
+// create LoginView component 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,12 +27,6 @@ export function LoginView(props) {
       .catch(e => {
         console.log('no such user')
       });
-  };
-
-  const onRegister = () => {
-    let newRegStatus = true;
-    console.log(newRegStatus);
-    props.setRegStatus(newRegStatus);
   };
 
   return (
