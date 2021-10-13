@@ -7,7 +7,9 @@ import Button from 'react-bootstrap/Button';
 import './navbar-view.scss';
 import { Nav, Navbar, NavbarBrand } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { LinkContainer } from "react-router-bootstrap";
 
+// create NavBarView component
 export class NavBarView extends React.Component {
 
   handleSignOut() {
@@ -17,12 +19,19 @@ export class NavBarView extends React.Component {
 
   render() {
     const { user, onBackClick } = this.props;
+    const home = '/'
     const profile = '/users/${user}';
+
 
     return (
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>myFlix</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>myFlix</Navbar.Brand>
+          </LinkContainer>
+          <Nav.Item>
+            <Nav.Link as={Link} to={home}>Home</Nav.Link>
+          </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to={profile}>Profile</Nav.Link>
           </Nav.Item>
