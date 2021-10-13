@@ -61,17 +61,19 @@ export class ProfileView extends React.Component {
     return (
       <Container>
         <Row>
-          <Card border="dark" bg="light" text="dark">
+          <Card border="dark" bg="light" text="dark" className="profile-card">
             <Card.Body>
               <Card.Title>Username: {localStorage.getItem('user')}</Card.Title>
               <Card.Text>Email: {localStorage.getItem('email')}</Card.Text>
               <Card.Text>Birthday: {localStorage.getItem('birthday')}</Card.Text>
               <Card.Text>Favorite Movies: {localStorage.getItem('favoriteMovies')}</Card.Text>
             </Card.Body>
-            <Link to={`/update/${user}`}>
-              <Button className="profile-view-button" variant="dark">Edit</Button>
-            </Link>
-            <Button className="profile-view-button" variant="dark" onClick={() => { this.handleDeregister() }}>Delete Profile</Button>
+            <ul>
+              <Link to={`/update/${user}`}>
+                <Button className="profile-view-button" variant="dark">Edit</Button>
+              </Link>
+              <Button className="profile-view-button" variant="dark" onClick={() => { this.handleDeregister() }}>Delete Profile</Button>
+            </ul>
           </Card>
         </Row>
         <Row>
