@@ -26,6 +26,9 @@ img {
 .main-view {
   margin-top: 5%;
 }
+.movie-card-button {
+  margin: 1%;
+}
 .profile-card {
   margin: auto;
 }
