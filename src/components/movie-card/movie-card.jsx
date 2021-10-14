@@ -2,13 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+
+import './movie-card.scss';
 
 import { Link } from "react-router-dom";
 
 // create MovieCard component
 export class MovieCard extends React.Component {
+
+  // handle post request for adding movie to favorites
+  handleFavorite(movies) {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+    console.log(token);
+    console.log(username);
+    console.log(movies._id);
+    const movieID = movies._id;
+    console.log(movies._id);
+    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movieID}`;
+    console.log(url);
+    axios.post(url,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then((response) => {
+        console.log(response);
+        localStorage.clear();
+        window.open(`/`, '_self');
+        alert('Added to favorites');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movie } = this.props;
+    let movies = movie;
     return (
       <Card border="dark" bg="light" text="dark">
         <Card.Img variant="top" src={movie.ImagePath} />
@@ -16,8 +46,9 @@ export class MovieCard extends React.Component {
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button variant="dark">Open</Button>
+            <Button className="movie-card-button" variant="dark">Open</Button>
           </Link>
+          <Button className="movie-card-button" variant="dark" onClick={() => { this.handleFavorite(movies) }}>Add to Favs</Button>
         </Card.Body>
       </Card>
     );
