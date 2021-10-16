@@ -15,12 +15,7 @@ export class MovieCard extends React.Component {
   handleFavorite(movies) {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
-    console.log(token);
-    console.log(username);
-    console.log(movies._id);
-    const movieID = movies._id;
-    console.log(movies._id);
-    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movieID}`;
+    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movies._id}`;
     console.log(url);
     axios.post(url,
       { headers: { Authorization: `Bearer ${token}` } }
