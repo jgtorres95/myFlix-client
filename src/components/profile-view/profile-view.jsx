@@ -52,7 +52,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { user, onBackClick, movies } = this.props;
+    const { user, movies } = this.props;
     const favoriteMovies = localStorage.getItem('favoriteMovies');
     const favoritesList = movies.filter(m => {
       return favoriteMovies.includes(m._id);
@@ -97,3 +97,12 @@ export class ProfileView extends React.Component {
     );
   }
 }
+
+ProfileView.PropTypes = {
+  user: PropTypes.shape({
+    FavoriteMovies: PropTypes.array.isRequired,
+    Username: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired,
+  }).isRequired
+};
