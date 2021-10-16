@@ -24827,8 +24827,9 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        //let user = localStorage.getItem('user');
+        let user = localStorage.getItem('user');
         let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) this.props.setUser(user);
         this.getMovies(accessToken);
     }
     // Update state of selectedMovie upon user clicking a movie
