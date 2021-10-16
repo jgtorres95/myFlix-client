@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import './navbar-view.scss';
@@ -16,7 +15,6 @@ export class NavBarView extends React.Component {
   }
 
   render() {
-    const { user, onBackClick } = this.props;
     const home = '/'
     const profile = '/users/${user}';
 
