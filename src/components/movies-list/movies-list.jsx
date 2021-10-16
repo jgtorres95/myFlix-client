@@ -12,10 +12,9 @@ const mapStateToProps = state => {
   return { visibilityFilter };
 };
 
-
-
 // create MoviesList component 
 function MoviesList(props) {
+
   const { movies, visibilityFilter } = props;
   let filteredMovies = movies;
 
@@ -41,5 +40,10 @@ function MoviesList(props) {
 export default connect(mapStateToProps)(MoviesList);
 
 MoviesList.propTypes = {
-  visibilityFilter: PropTypes.string.isRequired
+  visibilityFilter: PropTypes.string.isRequired,
+  movies: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired
+  }).isRequired,
 }
