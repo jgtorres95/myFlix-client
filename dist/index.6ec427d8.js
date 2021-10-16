@@ -24827,9 +24827,8 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        let user = localStorage.getItem('user');
+        //let user = localStorage.getItem('user');
         let accessToken = localStorage.getItem('token');
-        if (accessToken !== null) this.props.setUser(user);
         this.getMovies(accessToken);
     }
     // Update state of selectedMovie upon user clicking a movie
@@ -24856,8 +24855,7 @@ class MainView extends _reactDefault.default.Component {
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.props.setUser({
-        });
+        this.props.setUser(null);
     /*this.setState({
       user: null
     }); */ }
@@ -24876,25 +24874,24 @@ class MainView extends _reactDefault.default.Component {
     render() {
         // destructure props
         const { movies , user  } = this.props;
-        console.log(user);
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 103
+                lineNumber: 101
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_navbarView.NavBarView, {
             user: user,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 104
+                lineNumber: 102
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 106
+                lineNumber: 104
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24913,7 +24910,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 107
+                lineNumber: 105
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24926,7 +24923,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 114
+                lineNumber: 112
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24944,7 +24941,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 120
+                lineNumber: 118
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24966,7 +24963,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 126
+                lineNumber: 124
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -24988,7 +24985,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 135
+                lineNumber: 133
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25010,7 +25007,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 144
+                lineNumber: 142
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25031,7 +25028,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 153
+                lineNumber: 151
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -25052,7 +25049,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 162
+                lineNumber: 160
             },
             __self: this
         }))));
@@ -28792,7 +28789,7 @@ function MoviesList(props) {
         className: "main-view",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 27
+            lineNumber: 26
         },
         __self: this
     }));
@@ -28803,14 +28800,14 @@ function MoviesList(props) {
         },
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 30
+            lineNumber: 29
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_visibilityFilterInputDefault.default, {
         visibilityFilter: visibilityFilter,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-            lineNumber: 31
+            lineNumber: 30
         },
         __self: this
     })), filteredMovies.map((m)=>/*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
@@ -28818,14 +28815,14 @@ function MoviesList(props) {
             key: m._id,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-                lineNumber: 34
+                lineNumber: 33
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
             movie: m,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movies-list/movies-list.jsx",
-                lineNumber: 35
+                lineNumber: 34
             },
             __self: this
         }))
@@ -28834,7 +28831,12 @@ function MoviesList(props) {
 _c = MoviesList;
 exports.default = _reactRedux.connect(mapStateToProps)(MoviesList);
 MoviesList.propTypes = {
-    visibilityFilter: _propTypesDefault.default.string.isRequired
+    visibilityFilter: _propTypesDefault.default.string.isRequired,
+    movies: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        ImagePath: _propTypesDefault.default.string.isRequired
+    }).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MoviesList");
@@ -30170,12 +30172,7 @@ class MovieCard extends _reactDefault.default.Component {
     handleFavorite(movies) {
         const token = localStorage.getItem("token");
         const username = localStorage.getItem("user");
-        console.log(token);
-        console.log(username);
-        console.log(movies._id);
-        const movieID = movies._id;
-        console.log(movies._id);
-        let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movieID}`;
+        let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movies._id}`;
         console.log(url);
         _axiosDefault.default.post(url, {
             headers: {
@@ -30199,7 +30196,7 @@ class MovieCard extends _reactDefault.default.Component {
             text: "dark",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 43
+                lineNumber: 38
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
@@ -30207,32 +30204,32 @@ class MovieCard extends _reactDefault.default.Component {
             src: movie.ImagePath,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 44
+                lineNumber: 39
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 45
+                lineNumber: 40
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 46
+                lineNumber: 41
             },
             __self: this
         }, movie.Title), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 47
+                lineNumber: 42
             },
             __self: this
         }, movie.Description), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
             to: `/movies/${movie._id}`,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 48
+                lineNumber: 43
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30240,7 +30237,7 @@ class MovieCard extends _reactDefault.default.Component {
             variant: "dark",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 49
+                lineNumber: 44
             },
             __self: this
         }, "Open")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -30251,7 +30248,7 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 51
+                lineNumber: 46
             },
             __self: this
         }, "Add to Favs"))));
@@ -30661,6 +30658,13 @@ class GenreView extends _reactDefault.default.Component {
         }, "Back"))));
     }
 }
+GenreView.propTypes = {
+    genre: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
+};
 
   helpers.postlude(module);
 } finally {
@@ -30823,13 +30827,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // create RegistrationView component
 parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
-); //RegistrationView.propTypes = {
- //setRegStatus: PropTypes.func.isRequired
- //};
+);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
@@ -30894,20 +30894,20 @@ function RegistrationView(props) {
     return(/*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 74
+            lineNumber: 73
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
         controlId: "formUsername",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 75
+            lineNumber: 74
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 76
+            lineNumber: 75
         },
         __self: this
     }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30917,7 +30917,7 @@ function RegistrationView(props) {
         required: true,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 77
+            lineNumber: 76
         },
         __self: this
     }), Object.keys(usernameError).map((key)=>{
@@ -30925,7 +30925,7 @@ function RegistrationView(props) {
             key: key,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-                lineNumber: 80
+                lineNumber: 79
             },
             __self: this
         }, usernameError[key]));
@@ -30933,13 +30933,13 @@ function RegistrationView(props) {
         controlId: "formPassword",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 87
+            lineNumber: 86
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 88
+            lineNumber: 87
         },
         __self: this
     }, "Password: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30949,7 +30949,7 @@ function RegistrationView(props) {
         required: true,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 89
+            lineNumber: 88
         },
         __self: this
     }), Object.keys(passwordError).map((key)=>{
@@ -30957,7 +30957,7 @@ function RegistrationView(props) {
             key: key,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-                lineNumber: 92
+                lineNumber: 91
             },
             __self: this
         }, passwordError[key]));
@@ -30965,13 +30965,13 @@ function RegistrationView(props) {
         controlId: "formEmail",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 99
+            lineNumber: 98
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 100
+            lineNumber: 99
         },
         __self: this
     }, "Email: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -30980,7 +30980,7 @@ function RegistrationView(props) {
         ,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 101
+            lineNumber: 100
         },
         __self: this
     }), Object.keys(emailError).map((key)=>{
@@ -30988,7 +30988,7 @@ function RegistrationView(props) {
             key: key,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-                lineNumber: 104
+                lineNumber: 103
             },
             __self: this
         }, emailError[key]));
@@ -30996,13 +30996,13 @@ function RegistrationView(props) {
         controlId: "formBirthday",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 111
+            lineNumber: 110
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 112
+            lineNumber: 111
         },
         __self: this
     }, "Birthday: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
@@ -31011,7 +31011,7 @@ function RegistrationView(props) {
         ,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 113
+            lineNumber: 112
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31021,14 +31021,14 @@ function RegistrationView(props) {
         onClick: handleRegistration,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 116
+            lineNumber: 115
         },
         __self: this
     }, "Submit"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
         to: `/`,
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 119
+            lineNumber: 118
         },
         __self: this
     }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -31036,7 +31036,7 @@ function RegistrationView(props) {
         variant: "dark",
         __source: {
             fileName: "/Users/jtorres/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 120
+            lineNumber: 119
         },
         __self: this
     }, "Cancel"))));
@@ -31051,7 +31051,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","./registration-view.scss":"4Tn68","axios":"7rA65","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6"}],"4Tn68":[function() {},{}],"2cFuZ":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Form":"6A5ko","react-bootstrap/Button":"1ru0l","./registration-view.scss":"4Tn68","axios":"7rA65","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6"}],"4Tn68":[function() {},{}],"2cFuZ":[function(require,module,exports) {
 var helpers = require("../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41899,7 +41899,7 @@ class ProfileView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { user , onBackClick , movies  } = this.props;
+        const { user , movies  } = this.props;
         const favoriteMovies = localStorage.getItem('favoriteMovies');
         const favoritesList = movies.filter((m)=>{
             return favoriteMovies.includes(m._id);
@@ -42051,6 +42051,14 @@ class ProfileView extends _reactDefault.default.Component {
         }))));
     }
 }
+ProfileView.PropTypes = {
+    user: _propTypesDefault.default.shape({
+        FavoriteMovies: _propTypesDefault.default.array.isRequired,
+        Username: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired
+    }).isRequired
+};
 
   helpers.postlude(module);
 } finally {
@@ -42292,6 +42300,14 @@ function UpdateView(props) {
 }
 _s(UpdateView, "Jt0ukL1b907GuMNoUVtWTc3Tinc=");
 _c = UpdateView;
+UpdateView.PropTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired
+    }).isRequired
+};
 var _c;
 $RefreshReg$(_c, "UpdateView");
 
@@ -42314,8 +42330,6 @@ parcelHelpers.export(exports, "NavBarView", ()=>NavBarView
 );
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 var _button = require("react-bootstrap/Button");
@@ -42330,7 +42344,6 @@ class NavBarView extends _reactDefault.default.Component {
         window.open('/', '_self');
     }
     render() {
-        const { user , onBackClick  } = this.props;
         const home = '/';
         const profile = '/users/${user}';
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar, {
@@ -42338,32 +42351,32 @@ class NavBarView extends _reactDefault.default.Component {
             variant: "dark",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 25
+                lineNumber: 23
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_containerDefault.default, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 26
+                lineNumber: 24
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterBootstrap.LinkContainer, {
             to: "/",
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 27
+                lineNumber: 25
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Brand, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 28
+                lineNumber: 26
             },
             __self: this
         }, "myFlix")), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 30
+                lineNumber: 28
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
@@ -42371,13 +42384,13 @@ class NavBarView extends _reactDefault.default.Component {
             to: home,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 31
+                lineNumber: 29
             },
             __self: this
         }, "Home")), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 33
+                lineNumber: 31
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
@@ -42385,13 +42398,13 @@ class NavBarView extends _reactDefault.default.Component {
             to: profile,
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 34
+                lineNumber: 32
             },
             __self: this
         }, "Profile")), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Item, {
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 36
+                lineNumber: 34
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
@@ -42400,7 +42413,7 @@ class NavBarView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/jtorres/myFlix-client/src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 37
+                lineNumber: 35
             },
             __self: this
         }, "Sign Out")))));
@@ -42412,7 +42425,7 @@ class NavBarView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Container":"3Mt3t","react-bootstrap/Button":"1ru0l","./navbar-view.scss":"5JcD1","react-bootstrap":"4n7hB","react-router-dom":"1PMSK","react-router-bootstrap":"LSFfJ","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6"}],"5JcD1":[function() {},{}],"LSFfJ":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Container":"3Mt3t","react-bootstrap/Button":"1ru0l","./navbar-view.scss":"5JcD1","react-bootstrap":"4n7hB","react-router-dom":"1PMSK","react-router-bootstrap":"LSFfJ","@parcel/transformer-js/src/esmodule-helpers.js":"64uBx","../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"2TAi6"}],"5JcD1":[function() {},{}],"LSFfJ":[function(require,module,exports) {
 'use strict';
 exports.__esModule = true;
 exports.LinkContainer = exports.IndexLinkContainer = undefined;
