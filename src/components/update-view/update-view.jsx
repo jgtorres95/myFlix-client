@@ -128,3 +128,12 @@ export function UpdateView(props) {
     </Form>
   )
 }
+
+UpdateView.PropTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired,
+  }).isRequired
+};
