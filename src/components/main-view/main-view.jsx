@@ -146,6 +146,7 @@ class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <MoviesList movies={movies} />
+            return <MoviesList movies={movies} handleFavorite={id => this.handleFavorite(id)} />
           }} />
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
@@ -156,7 +157,7 @@ class MainView extends React.Component {
           <Route path="/profile" render={() => {
             if (!user) return <Redirect to="/" />
             return <Col md={8}>
-              <ProfileView user={user} movies={movies} />
+              <ProfileView user={user} movies={movies} handleRemove={id => this.handleRemove(id)} />
             </Col>
           }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {
@@ -192,7 +193,7 @@ class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <ProfileView user={user} movies={movies} />
+              <ProfileView user={user} movies={movies} handleRemove={id => this.handleRemove(id)} />
             </Col>
           }} />
           <Route path="/update/:username" render={({ match, history }) => {
