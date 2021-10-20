@@ -33,20 +33,17 @@ class MainView extends React.Component {
     // Initialize state
     this.state = {
       selectedMovie: null,
-      regStatus: false
+      regStatus: false,
     };
   }
 
   componentDidMount() {
-    let user = localStorage.getItem('user');
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.props.setUser(user);
     }
     this.getMovies(accessToken);
   }
 
-  // Update state of selectedMovie upon user clicking a movie
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie
@@ -57,10 +54,6 @@ class MainView extends React.Component {
   onLoggedIn(authData) {
     console.log(authData);
     this.props.setUser(authData);
-    //this.setState({
-    //user: authData.user.Username
-    //user: authData.user
-
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     localStorage.setItem('birthday', authData.user.Birthday);
@@ -76,9 +69,6 @@ class MainView extends React.Component {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.props.setUser(null);
-    /*this.setState({
-      user: null
-    }); */
   }
 
   // get user data and update state
@@ -162,7 +152,6 @@ class MainView extends React.Component {
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
-            return <MoviesList movies={movies} />
             return <MoviesList movies={movies} handleFavorite={id => this.handleFavorite(id)} />
           }} />
           <Route path="/register" render={() => {
