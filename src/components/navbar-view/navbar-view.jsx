@@ -9,6 +9,7 @@ import { LinkContainer } from "react-router-bootstrap";
 // create NavBarView component
 export class NavBarView extends React.Component {
 
+  // sign out user by clearing local storage
   handleSignOut() {
     localStorage.clear();
     window.open('/', '_self');
