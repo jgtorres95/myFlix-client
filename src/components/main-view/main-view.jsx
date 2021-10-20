@@ -113,6 +113,25 @@ class MainView extends React.Component {
       });
   }
 
+  // handle post request for adding movie to favorites
+  handleFavorite(movies) {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movies._id}`;
+    axios.post(url, {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then((response) => {
+        console.log(response);
+        this.getUser();
+        window.open(`/`, '_self');
+        alert('Added to favorites');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     // destructure props
     const { movies, user } = this.props;
