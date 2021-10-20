@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 // create MoviesList component 
 function MoviesList(props) {
 
-  const { movies, visibilityFilter } = props;
+  const { movies, visibilityFilter, handleFavorite } = props;
   let filteredMovies = movies;
 
   // filter movies based on user input
@@ -31,7 +31,7 @@ function MoviesList(props) {
     </Col>
     {filteredMovies.map(m => (
       <Col md={3} key={m._id}>
-        <MovieCard movie={m} />
+        <MovieCard movie={m} handleFavorite={id => handleFavorite(id)} />
       </Col>
     ))}
   </>;
