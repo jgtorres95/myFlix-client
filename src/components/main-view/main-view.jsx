@@ -81,6 +81,23 @@ class MainView extends React.Component {
     }); */
   }
 
+  // get user data and update state
+  getUser() {
+    let username = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
+    let url = `https://cf-myflix-app.herokuapp.com/users/${username}`;
+    axios.get(url, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.props.setUser(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // get list of movies and update state
   getMovies(token) {
     axios.get('https://cf-myflix-app.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
