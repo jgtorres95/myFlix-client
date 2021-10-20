@@ -6,32 +6,19 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { Link } from "react-router-dom";
 import './profile-view.scss';
 
+const mapStateToProps = state => {
+  const { movies, user } = state;
+  return { movies, user };
+};
+
 // create ProfileView component
 export class ProfileView extends React.Component {
-
-  // handle delete request for newly removed favorite
-  handleRemove(movie) {
-    const token = localStorage.getItem("token");
-    const username = localStorage.getItem("user");
-    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movie._id}`;
-    axios.delete(url,
-      { headers: { Authorization: `Bearer ${token}` } }
-    )
-      .then((response) => {
-        console.log(response);
-        localStorage.clear();
-        window.open(`/`, '_self');
-        alert('Removed from favorites');
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   // handle delete request for deregistered user
   handleDeregister() {
@@ -52,10 +39,13 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { user, movies } = this.props;
-    const favoriteMovies = localStorage.getItem('favoriteMovies');
+    const { user, movies, handleRemove } = this.props;
+
     const favoritesList = movies.filter(m => {
-      return favoriteMovies.includes(m._id);
+      if (user.FavoriteMovies) {
+        return user.FavoriteMovies.includes(m._id);
+      }
+      return [];
     });
 
     return (
@@ -63,10 +53,9 @@ export class ProfileView extends React.Component {
         <Row>
           <Card border="dark" bg="light" text="dark" className="profile-card">
             <Card.Body>
-              <Card.Title>Username: {localStorage.getItem('user')}</Card.Title>
-              <Card.Text>Email: {localStorage.getItem('email')}</Card.Text>
-              <Card.Text>Birthday: {localStorage.getItem('birthday')}</Card.Text>
-              <Card.Text>Favorite Movies: {localStorage.getItem('favoriteMovies')}</Card.Text>
+              <Card.Title>Username: {user.Username}</Card.Title>
+              <Card.Text>Email: {user.Email}</Card.Text>
+              <Card.Text>Birthday: {user.Birthday}</Card.Text>
             </Card.Body>
             <ul>
               <Link to={`/update/${user}`}>
@@ -86,7 +75,7 @@ export class ProfileView extends React.Component {
                       <Card.Title>{movie.Title}</Card.Title>
                       <Card.Img variant="top" src={movie.ImagePath} />
                     </Card.Body>
-                    <Button className="profile-view-button" variant="dark" onClick={() => { this.handleRemove(movie) }}>Remove</Button>
+                    <Button className="profile-view-button" variant="dark" onClick={() => { handleRemove(movie) }}>Remove</Button>
                   </Card>
                 </div>
               </Col>
@@ -98,11 +87,13 @@ export class ProfileView extends React.Component {
   }
 }
 
-ProfileView.PropTypes = {
+export default connect(mapStateToProps)(ProfileView);
+
+ProfileView.propTypes = {
   user: PropTypes.shape({
     FavoriteMovies: PropTypes.array.isRequired,
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.string.isRequired,
   }).isRequired
-};
+}; 
