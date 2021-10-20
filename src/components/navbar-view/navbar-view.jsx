@@ -18,12 +18,15 @@ export class NavBarView extends React.Component {
   render() {
     const home = '/'
     const profile = '/users/${user}';
+    const username = localStorage.getItem("user");
+    const home = '/';
+    const profile = `/users/${username}`;
 
 
     return (
       <Navbar bg="dark" variant="dark">
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to={home}>
             <Navbar.Brand>myFlix</Navbar.Brand>
           </LinkContainer>
           <Nav.Item>
