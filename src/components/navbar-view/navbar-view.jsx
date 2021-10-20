@@ -16,8 +16,6 @@ export class NavBarView extends React.Component {
   }
 
   render() {
-    const home = '/'
-    const profile = '/users/${user}';
     const username = localStorage.getItem("user");
     const home = '/';
     const profile = `/users/${username}`;
