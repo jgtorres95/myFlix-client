@@ -94,6 +94,25 @@ class MainView extends React.Component {
       });
   }
 
+  // handle delete request for removal of favorite movie
+  handleRemove(movie) {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+    let url = `https://cf-myflix-app.herokuapp.com/users/${username}/movies/${movie._id}`;
+    axios.delete(url,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+      .then((response) => {
+        console.log(response);
+        this.getUser();
+        window.open(`/users/${username}`, '_self');
+        alert('Removed from favorites');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     // destructure props
     const { movies, user } = this.props;
