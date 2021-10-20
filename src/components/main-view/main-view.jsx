@@ -45,6 +45,7 @@ class MainView extends React.Component {
     this.getMovies(accessToken);
   }
 
+  // update state of selectedMovie upon user clicking a movie
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie
@@ -66,6 +67,7 @@ class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  // clear local storage and update state upon logging out
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
